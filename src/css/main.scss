@@ -20,25 +20,27 @@ body {
 	font-size: $fontSize;
 	line-height: $baseline;
 
-	&:after {
-	    content: "";
-	    display: block;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    right: 0;
-	    bottom: 0;
-	    background: rgba(0, 0, 0, 0.7);
-	    opacity: 0;
-	    transition: .2s ease all;
-	    visibility: hidden;
-	} 
+}
 
-	&.is-active:after {
+.overlay {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: .2s ease all;
+    visibility: hidden;
+    z-index: 9;
+
+	&.is-active {
 		opacity: 1;
 		visibility: visible;
 	}
-}
+} 
 
 .container {
 	max-width: 960px;
@@ -52,20 +54,20 @@ body {
 	padding: $baseline/2 $gutter;
 
 	@media (max-width: 720px) {
+		width: 150px;
 		position: fixed;
 		top: 0;
 		bottom: 0;
-		left: -225px;
+		left: -150px;
 		overflow-y: scroll;
 		z-index: 99;
 		transition: .2s ease transform;
 	}
 
 	&.is-active {
-		transform: translate3d(225px, 0, 0);
+		transform: translate3d(150px, 0, 0);
 	}
 }
-
 
 .nav-list {
 	list-style: none;
@@ -75,34 +77,51 @@ body {
 	color: lighten($color-text, 25%);
 	font-size: $fontSize*.82;
 	margin-bottom: $baseline/4;
-	&:not(:first-of-type) { margin-top: $baseline }
+	&:not(:first-of-type) { 
+		margin-top: $baseline;
+		@media (max-width: 720px) {
+			padding-top: $baseline/2;
+			border-top: 1px solid rgba(0,0,0,.1);
+			margin-top: $baseline/2;
+		}
+	}
+	@media (max-width: 720px) {
+		font-size: $fontSize*.7;
+	}
 }
-
-.nav-active .nav-link {
-	background: yellow;
-}
-
 .nav-link {
 	display: block;
 	margin-bottom: $baseline/4;
 	text-decoration: none;
 	color: $color-text;
 	transition: transform .1s ease;
+	outline: none;
 	&:hover { 
 		color: #0c92f1;
 		transform: translate3d(2px, 0, 0);
 	}
+	@media (max-width: 720px) {
+		font-size: $fontSize*.85;
+	}
 }
 
 .nav-icon {
-	color: #496dcc !important;
+	color: #496dcc;
 	font-size: $fontSize*1.2;
 	margin-right: $gutter/2;
+	@media (min-width: 720px) { margin-right: $gutter }
 }
 
-.nav-icon.nav-icon--contacts { color: #7373e1 }
-.nav-icon.nav-icon--sell { color: #4bc469 }
-.nav-icon.nav-icon--buy { color: #df647c }
-.nav-icon.nav-icon--bank { color: #b45ba1 }
-.nav-icon.nav-icon--reports { color: #767676 }
-.nav-icon.nav-icon--products { color: #7fc4ce }
+// .nav-icon.nav-icon--contacts { color: #7373e1 }
+// .nav-icon.nav-icon--sell { color: #4bc469 }
+// .nav-icon.nav-icon--buy { color: #df647c }
+// .nav-icon.nav-icon--bank { color: #b45ba1 }
+// .nav-icon.nav-icon--reports { color: #767676 }
+// .nav-icon.nav-icon--products { color: #7fc4ce }
+
+.navToggler {
+	position: fixed;
+	top: 20px;
+	right: 50px;
+	@media (min-width: 720px) { display: none }
+}

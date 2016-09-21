@@ -6,13 +6,14 @@
   "scripts": {
     "sass": "node-sass -o src/css src/css/main.scss -w",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --content-base src --inline --hot"
+    "dev": "webpack-dev-server --content-base src --inline --hot",
+    "build": "webpack --progress"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lietosmrdi/nav-idea.git"
   },
-  "author": "",
+  "author": "Patrik Krupar",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lietosmrdi/nav-idea/issues"

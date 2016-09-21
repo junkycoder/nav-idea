@@ -8,8 +8,8 @@ module.exports = {
 	devtool: debug ? "inline-sourcemap" : null,
 	entry: "./js/main.js",
 	output: {
-		path: __dirname + '/src/',
-		filename: "main.min.js"
+		path: path.resolve(__dirname, "./src/"),
+		filename: "js/main.min.js"
 	},
 	plugins: debug ? [] : [
 		new webpack.optimize.DedupePlugin(),
