@@ -1,0 +1,96 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 100%; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 28px; }
+  body:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: .2s ease all;
+    visibility: hidden; }
+  body.is-active:after {
+    opacity: 1;
+    visibility: visible; }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.nav {
+  width: 225px;
+  height: 100vh;
+  background: #f9f9f9;
+  padding: 14px 15px; }
+  @media (max-width: 720px) {
+    .nav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: -225px;
+      overflow-y: scroll;
+      z-index: 99;
+      transition: .2s ease transform; } }
+  .nav.is-active {
+    transform: translate3d(225px, 0, 0); }
+
+.nav-list {
+  list-style: none; }
+
+.nav-groupLabel {
+  color: #929292;
+  font-size: 13.12px;
+  margin-bottom: 7px; }
+  .nav-groupLabel:not(:first-of-type) {
+    margin-top: 28px; }
+
+.nav-active .nav-link {
+  background: yellow; }
+
+.nav-link {
+  display: block;
+  margin-bottom: 7px;
+  text-decoration: none;
+  color: #525252;
+  transition: transform .1s ease; }
+  .nav-link:hover {
+    color: #0c92f1;
+    transform: translate3d(2px, 0, 0); }
+
+.nav-icon {
+  color: #496dcc !important;
+  font-size: 19.2px;
+  margin-right: 7.5px; }
+
+.nav-icon.nav-icon--contacts {
+  color: #7373e1; }
+
+.nav-icon.nav-icon--sell {
+  color: #4bc469; }
+
+.nav-icon.nav-icon--buy {
+  color: #df647c; }
+
+.nav-icon.nav-icon--bank {
+  color: #b45ba1; }
+
+.nav-icon.nav-icon--reports {
+  color: #767676; }
+
+.nav-icon.nav-icon--products {
+  color: #7fc4ce; }
